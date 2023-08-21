@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, {useEffect} from "react";
+import React from "react";
 import {urlGenerator} from "./urlGenerator.ts";
 
 interface user {
@@ -23,22 +23,16 @@ interface user {
         bs: string;
     };
 }
-export const GetUsers = () => {
+const GetUsers = async () => {
     const [users, setUsers] = React.useState<user[]>([]);
+    try {
+        const response = await axios.get<user[]>(urlGenerator({"users":""}, "/data"));
+        if (response.status === 200) {
+            setUsers(response.data);
+        }
+    } catch (error) {
+        console.error(error);
+    }
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get<user[]>(urlGenerator({"users":""}, "/data"));
-                if (response.status === 200) {
-                    setUsers(response.data);
-                }
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        fetchData();
-    }, []);
     return users;
 }
