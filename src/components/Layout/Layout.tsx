@@ -2,10 +2,8 @@ import React, { useState} from 'react';
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-} from '@ant-design/icons';
+     UserOutlined,
+    UnorderedListOutlined} from '@ant-design/icons';
 import { Layout as LayoutAnt, Menu, Button, theme } from 'antd';
 
 const { Header,
@@ -23,34 +21,26 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
     return (
 
         <LayoutAnt className='w-screen h-screen'>
-            <Sider trigger={null} collapsible collapsed={collapsed} width='12%' >
+            <Sider trigger={null} collapsible collapsed={collapsed}>
                 <div className="demo-logo-vertical" />
                 <Menu
                     theme="dark"
                     mode="inline"
-                    className='text-2xl'
-                    defaultSelectedKeys={['1']}
-                    items={[
-                        {
-                            key: '1',
-                            icon: <UserOutlined />,
-                            label: 'nav 1',
-                        },
-                        {
-                            key: '2',
-                            icon: <VideoCameraOutlined />,
-                            label: 'nav 2',
-                        },
-                        {
-                            key: '3',
-                            icon: <UploadOutlined />,
-                            label: 'nav 3',
-                        },
-                    ]}
-                />
+                    className='text-xl'
+                    defaultSelectedKeys={['1']}>
+                    <Menu.Item key="1" icon={<UserOutlined />}> Dashboard </Menu.Item>
+                    <Menu.Item key="2" icon={<UnorderedListOutlined />}> Users </Menu.Item>
+                </Menu>
             </Sider>
             <LayoutAnt>
-                <Header style={{ padding: 0, background: colorBgContainer }}>
+                <Header style={{
+                    padding: 0,
+                    background: colorBgContainer,
+                    display:'flex',
+                    justifyContent:'space-between',
+                    height:'8%',
+                    alignItems:'center',
+                }}>
                     <Button
                         type="text"
                         icon={collapsed ?
@@ -71,6 +61,8 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                             height: 64,
                         }}
                     />
+                    <img src='logo.png'  alt="logo" className='w-64 p-3  object-contain' />
+
                 </Header>
                 <Content
                     style={{

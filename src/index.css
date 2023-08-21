@@ -10,3 +10,12 @@
     font-size: 32px;
       display: flex;
 }
+.ant-layout-sider-children, .ant-menu{
+    background-color:#0A3342;
+ }
+.ant-menu-item.ant-menu-item-selected{
+    background-color:#164E63;
+}
+.ant-layout-content{
+    background-color: #FFEECC;
+}
