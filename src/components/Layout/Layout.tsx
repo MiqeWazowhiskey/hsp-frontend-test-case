@@ -64,7 +64,9 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                             height: 64,
                         }}
                     />
-                    <img src='logo.png'  alt="logo" className='w-64 p-3  object-contain' />
+                  <NavLink to={'/'}>
+                      <img src='logo.png'  alt="logo" className='w-64 p-3  object-contain' />
+                  </NavLink>
 
                 </Header>
                 <Content
