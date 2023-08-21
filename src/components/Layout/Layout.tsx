@@ -5,6 +5,7 @@ import {
      UserOutlined,
     UnorderedListOutlined} from '@ant-design/icons';
 import { Layout as LayoutAnt, Menu, Button, theme } from 'antd';
+import {NavLink} from "react-router-dom";
 
 const { Header,
         Sider,
@@ -27,9 +28,11 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                     theme="dark"
                     mode="inline"
                     className='text-xl'
-                    defaultSelectedKeys={['1']}>
-                    <Menu.Item key="1" icon={<UserOutlined />}> Dashboard </Menu.Item>
-                    <Menu.Item key="2" icon={<UnorderedListOutlined />}> Users </Menu.Item>
+                    defaultSelectedKeys={['1']}
+                    selectedKeys={[location.pathname]}
+                >
+                    <Menu.Item key="/" icon={<UserOutlined />}><NavLink to={'/'}>Dashboard</NavLink> </Menu.Item>
+                    <Menu.Item key="/users" icon={<UnorderedListOutlined />}> <NavLink to={'/users'}>Users</NavLink>  </Menu.Item>
                 </Menu>
             </Sider>
             <LayoutAnt>

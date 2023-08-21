@@ -1,16 +1,21 @@
 import './App.css'
-import Layout from "./components/Layout";
-import Card from "./components/Card";
-
-
+import {createBrowserRouter,RouterProvider} from "react-router-dom";
+import Dashboard from "./Pages/Dashboard";
+import Users from "./Pages/Users";
 function App() {
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Dashboard/>,
+        },
+        {
+            path: "/users",
+            element: <Users/>,
+        },
+    ]);
 
   return (
-    <Layout>
-        <Card title='Card Title' className='w-1/2'>
-            <div className='text-2xl'>Card Content</div>
-        </Card>
-    </Layout>
+      <RouterProvider router={router} />
   )
 }
 
