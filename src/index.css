@@ -19,3 +19,6 @@
 .ant-layout-content{
     background-color: #FFEECC;
 }
+.ant-table-cell{
+    height: 80px;
+}

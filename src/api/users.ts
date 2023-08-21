@@ -1,38 +1,22 @@
 import axios from "axios";
-import React from "react";
 import {urlGenerator} from "./urlGenerator.ts";
+import {User} from "../Model/User.ts";
+import {useQuery} from "@tanstack/react-query";
 
-interface user {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-    registerDate: number;
-    totalHour: number;
-    address: {
-        street: string;
-        suite: string;
-        city: string;
-        zipcode: string;
-    };
-    phone: string;
-    website: string;
-    company: {
-        name: string;
-        catchPhrase: string;
-        bs: string;
-    };
+
+interface Response {
+    users: User[];
 }
-const GetUsers = async () => {
-    const [users, setUsers] = React.useState<user[]>([]);
+const fetchUser = async () => {
     try {
-        const response = await axios.get<user[]>(urlGenerator({"users":""}, "/data"));
-        if (response.status === 200) {
-            setUsers(response.data);
-        }
+        return await axios.get<Response>(urlGenerator({"users": ""}, "/data"));
     } catch (error) {
         console.error(error);
     }
-
-    return users;
+}
+export function useGetUsers() {
+    return useQuery({
+        queryKey: ["users"],
+        queryFn: fetchUser,
+    });
 }
