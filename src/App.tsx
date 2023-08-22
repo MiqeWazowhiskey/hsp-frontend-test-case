@@ -4,6 +4,7 @@ import Dashboard from "./Pages/Dashboard";
 import Users from "./Pages/Users";
 import Edit from "./Pages/Edit";
 import {ErrorPage} from "./Pages/Error";
+import AddUser from "./Pages/AddUser";
 
 function App() {
     const router = createBrowserRouter([
@@ -17,7 +18,7 @@ function App() {
         },
         {
             path: "add",
-            element: <Edit/>,
+            element: <AddUser/>,
         },
         {
             path: "edit/:id",

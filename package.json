@@ -24,6 +24,7 @@
     "react-hook-form-antd": "^0.0.2",
     "react-router-dom": "^6.15.0",
     "sort-by": "^1.2.0",
+    "uuid": "^9.0.0",
     "yup": "^1.2.0"
   },
   "devDependencies": {

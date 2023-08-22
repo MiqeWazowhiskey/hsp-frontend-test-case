@@ -20,7 +20,7 @@ export const fetchUser = async () => {
 
 
 //get by id
-export const fetchUserById = async (id:number) => {
+export const fetchUserById = async (id:string) => {
     try {
         const res = await axios.get<User>(urlGenerator( `users/${id}`));
         return res.data;
@@ -45,10 +45,21 @@ export const deleteUser = async (ids:number[]) => {
 }
 
 //put
-export const updateUser = async (id: number,user: User) => {
+export const updateUser = async (id: string,user: User) => {
     try {
         await axios.put<Response>(
             urlGenerator(`users/${id}`),user
+        );
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+//add
+export const addUser = async (user: User) => {
+    try {
+        await axios.post<Response>(
+            urlGenerator(`users`),user
         );
     } catch (error) {
         console.error(error);

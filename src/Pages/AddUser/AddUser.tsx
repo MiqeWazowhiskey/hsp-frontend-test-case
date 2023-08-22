@@ -1,49 +1,38 @@
 import Layout from "../../components/Layout";
-import {Alert, Button, Form, Input} from "antd";
-import {useParams} from "react-router-dom";
-import {formatDateToNumeric, useGetUserById, useUpdateUser} from "../../Service/UserService.ts";
-import {FieldValues, useForm} from "react-hook-form";
+import { Button, Form, Input} from "antd";
 import {FormItem} from "react-hook-form-antd";
+import {FieldValues, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
+// TODO:   it cannot find uuid but works well
+//@ts-ignore
+import { v4 as uuid } from 'uuid';
 import {userSchema} from "../../Schemas/UserSchema.ts";
-import {User} from "../../Model/User.ts";
-
-export const Edit = () => {
-    //id from url
-    const {id} = useParams();
+import {formatDateToNumeric, useAddUser} from "../../Service/UserService.ts";
 
 
 
-    const {data, isSuccess: successGet} = useGetUserById(id as string);
 
-    const {mutate,  isSuccess: successUpdate  } = useUpdateUser();
-
-
-    const date = data && new Date(data.registerDate);
-    const defaultValues = data && {
-        name:  data.name,
-        username:  data.username,
-        email:  data.email,
-        totalHour:  data.totalHour,
-        registerDate:   `${date!.getFullYear()}-${String(date!.getMonth() + 1).padStart(2, '0')}-${String(date!.getDate()).padStart(2, '0')}`,
+export const AddUser = () => {
+    const defaultValues = {
+        name:  '',
+        username:  '',
+        email:  '',
+        totalHour:  0,
+        registerDate:   '',
         address: {
-            street:  data.address.street,
-            suite:  data.address.suite,
-            city:  data.address.city,
-            zipcode:  data.address.zipcode,
+            street:  '',
+            suite:  '',
+            city:  '',
+            zipcode:  '',
         },
-        phone:  data.phone,
-        website:  data.website,
+        phone:  '',
+        website:  '',
         company: {
-            name:  data.company.name,
-            catchPhrase:  data.company.catchPhrase,
-            bs:  data.company.bs,
-        },
+            name:  '',
+            catchPhrase:  '',
+            bs:  '',
+        }
     };
-
-
-
-
     const {
         handleSubmit,
         control
@@ -55,11 +44,10 @@ export const Edit = () => {
     } );
 
 
-
-
+    const{mutate} = useAddUser();
     const onSubmit = (data:FieldValues) => {
         const requestBody = {
-            id: id,
+            id: uuid(),
             name: data.name,
             username: data.username,
             email: data.email,
@@ -79,15 +67,14 @@ export const Edit = () => {
                 bs: data.company.bs,
             },
 
-        }
-        mutate({id: id as string, user: requestBody as User});
+        };
+        mutate(requestBody);
     };
 
-    return successGet && (
+    return (
         <Layout>
             <h3 className={'flex text-2xl font-bold justify-between text-[#0A3342]'}>
                 User Details
-                {successUpdate && <Alert message="Success" type="success" showIcon />}
             </h3>
 
             <Form onFinish={handleSubmit((values) => {
@@ -237,5 +224,5 @@ export const Edit = () => {
 
             </Form>
         </Layout>
-    );
-};
+    )
+}

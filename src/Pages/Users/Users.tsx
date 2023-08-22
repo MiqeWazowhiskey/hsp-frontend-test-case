@@ -5,6 +5,7 @@ import type { ColumnsType } from 'antd/es/table';
 import {User} from "../../Model/User.ts";
 import {useDeleteUser, useGetUsers} from "../../Service/UserService.ts";
 import {NavLink, useNavigate} from "react-router-dom";
+import {set} from "react-hook-form";
 
 const columns: ColumnsType<User> = [
     {
@@ -69,9 +70,9 @@ const columns: ColumnsType<User> = [
 export const Users: React.FC = () => {
     const {data,isSuccess} = useGetUsers();
     const[selected,setSelected]= React.useState<number[]>([]);
-    const {mutate} = useDeleteUser(selected);
+    const {mutate} = useDeleteUser();
     const locate = useNavigate();
-    const handleRowClick = (id: number) => {
+    const handleRowClick = (id: string) => {
         locate('/edit/'+id)
     }
     const rowSelection = {
@@ -101,7 +102,7 @@ export const Users: React.FC = () => {
                     size={'middle'}
                     type='primary'
                     className={`${selected.length>0?'block':'hidden'} `}
-                    onClick={()=>{selected?.length && mutate() }}
+                    onClick={()=>{selected?.length && mutate(selected);setSelected([]) }}
                 >
                     <p className={'text-sm'}> Delete All</p>
                 </Button>
