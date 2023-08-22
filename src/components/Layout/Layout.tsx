@@ -27,7 +27,7 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                 <Menu
                     theme="dark"
                     mode="inline"
-                    className='text-xl'
+                    className='text-lg'
                     defaultSelectedKeys={['1']}
                     selectedKeys={[location.pathname]}
                 >
@@ -65,7 +65,8 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                         }}
                     />
                   <NavLink to={'/'}>
-                      <img src='logo.png'  alt="logo" className='w-64 p-3  object-contain' />
+                      {/*There were conflict about path, so that I need to specify the path */}
+                      <img src='../../../public/logo.png'  alt="logo" className='w-64 p-3  object-contain' />
                   </NavLink>
 
                 </Header>

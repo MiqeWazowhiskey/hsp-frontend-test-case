@@ -20,7 +20,12 @@
     background-color: #FFEECC;
 }
 .ant-table-cell{
-    height: 80px;
-    font-size:16px;
+    font-size:  0.62vw;
+}
+.ant-table-cell:hover{
+    cursor: pointer;
+}
 
+*{
+    font-family: 'Raleway', sans-serif;
 }

@@ -4,6 +4,7 @@ import {Table, Button, Space} from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import {User} from "../../Model/User.ts";
 import {useDeleteUser, useGetUsers} from "../../Service/UserService.ts";
+import {NavLink, useNavigate} from "react-router-dom";
 
 const columns: ColumnsType<User> = [
     {
@@ -69,7 +70,10 @@ export const Users: React.FC = () => {
     const {data,isSuccess} = useGetUsers();
     const[selected,setSelected]= React.useState<number[]>([]);
     const {mutate} = useDeleteUser(selected);
-
+    const locate = useNavigate();
+    const handleRowClick = (id: number) => {
+        locate('/edit/'+id)
+    }
     const rowSelection = {
         onChange: (selectedRowKeys: React.Key[], selectedRows: User[]) => {
             if(selectedRows.length>0) {
@@ -89,17 +93,17 @@ export const Users: React.FC = () => {
     return isSuccess && (
         <Layout>
             <Space className='flex flex-row gap-2 mb-5'>
-                <Button type="primary" className='bg-[#1677ff]' size={'large'}>
-                    Add User
+                <Button type="primary" className='bg-[#1677ff]' size={'middle'}>
+                    <NavLink to={'/add'} className={'text-sm'}>Add User</NavLink>
                 </Button>
                 <Button
                     danger
-                    size={'large'}
+                    size={'middle'}
                     type='primary'
                     className={`${selected.length>0?'block':'hidden'} `}
                     onClick={()=>{selected?.length && mutate() }}
                 >
-                    Delete All
+                    <p className={'text-sm'}> Delete All</p>
                 </Button>
             </Space>
             <Table
@@ -111,6 +115,9 @@ export const Users: React.FC = () => {
                 columns={columns}
                 dataSource={data}
                 pagination={{pageSize:8}}
+                onRow={(record: User) => ({
+                    onClick: () => handleRowClick(record.id), // Handle row click
+                })}
             />
         </Layout>
     );
