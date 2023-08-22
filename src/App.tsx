@@ -3,6 +3,8 @@ import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import Dashboard from "./Pages/Dashboard";
 import Users from "./Pages/Users";
 import Edit from "./Pages/Edit";
+import {ErrorPage} from "./Pages/Error";
+
 function App() {
     const router = createBrowserRouter([
         {
@@ -20,6 +22,10 @@ function App() {
         {
             path: "edit/:id",
             element: <Edit/>,
+        },
+        {
+            path: "*",
+            element: <ErrorPage/>,
         }
     ]);
 
