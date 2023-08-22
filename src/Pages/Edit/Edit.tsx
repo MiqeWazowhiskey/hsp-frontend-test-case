@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout";
-import {Button, Form, Input} from "antd";
+import {Alert, Button, Form, Input} from "antd";
 import {useParams} from "react-router-dom";
 import {useGetUserById, useUpdateUser} from "../../Service/UserService.ts";
 import {FieldValues, useForm} from "react-hook-form";
@@ -94,9 +94,9 @@ export const Edit = () => {
 
     return successGet && (
         <Layout>
-            <h3 className={'flex justify-between text-2xl font-bold text-[#0A3342]'}>
+            <h3 className={'flex text-2xl font-bold justify-between text-[#0A3342]'}>
                 User Details
-                {successUpdate && <span className={'ml-auto font-light text-red-500'}> Saved Successfully</span>}
+                {successUpdate && <Alert message="Success" type="success" showIcon />}
             </h3>
 
             <Form onFinish={handleSubmit((values) => {
