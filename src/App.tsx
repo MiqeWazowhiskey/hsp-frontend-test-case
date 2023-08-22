@@ -1,10 +1,12 @@
 import './App.css'
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
-import Dashboard from "./Pages/Dashboard";
-import Users from "./Pages/Users";
-import Edit from "./Pages/Edit";
 import {ErrorPage} from "./Pages/Error";
-import AddUser from "./Pages/AddUser";
+import {lazy, Suspense} from "react";
+
+const Dashboard = lazy(() => import('./Pages/Dashboard'));
+const Users = lazy(() => import('./Pages/Users'));
+const Edit = lazy(() => import('./Pages/Edit'));
+const AddUser = lazy(() => import('./Pages/AddUser'));
 
 function App() {
     const router = createBrowserRouter([
@@ -31,7 +33,9 @@ function App() {
     ]);
 
   return (
-      <RouterProvider router={router} />
+              <Suspense fallback={null}>
+                  <RouterProvider router={router} />
+              </Suspense>
   )
 }
 

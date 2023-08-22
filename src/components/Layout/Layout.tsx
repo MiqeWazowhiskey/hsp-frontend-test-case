@@ -10,6 +10,7 @@ import {NavLink} from "react-router-dom";
 const { Header,
         Sider,
         Content} = LayoutAnt;
+
 interface LayoutProps {
     children:  React.ReactNode;
 }
@@ -78,7 +79,10 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                         background: colorBgContainer
                     }}
                 >
+
                     {children}
+
+
                 </Content>
             </LayoutAnt>
         </LayoutAnt>

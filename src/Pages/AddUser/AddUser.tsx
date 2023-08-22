@@ -164,6 +164,7 @@ export const AddUser = () => {
                         <FormItem control={control} name={'phone'}>
                             <Input
                                 placeholder="Phone"
+                                type={'number'}
                                 className=" text-xl mt-3 border-b-2 border-[#0A3342] focus:outline-none focus:border-b-blue-600 focus:scale-105 transition-all"
                             />
                         </FormItem>

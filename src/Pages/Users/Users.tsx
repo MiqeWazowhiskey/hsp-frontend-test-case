@@ -5,7 +5,6 @@ import type { ColumnsType } from 'antd/es/table';
 import {User} from "../../Model/User.ts";
 import {useDeleteUser, useGetUsers} from "../../Service/UserService.ts";
 import {NavLink, useNavigate} from "react-router-dom";
-import {set} from "react-hook-form";
 
 const columns: ColumnsType<User> = [
     {
