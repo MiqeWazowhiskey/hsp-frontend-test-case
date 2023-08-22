@@ -47,7 +47,7 @@ function App() {
   return (
               <Suspense fallback={
                   <div className={'w-screen h-screen suspense-fallback active'}>
-                      <img alt={'logo'} src={'./logo.png'} className={'w-[50%] ml-auto mr-auto mt-[8%]'}/>
+                      <img alt={'logo'} src={'../Public/logo.png'} className={'w-[50%] ml-auto mr-auto mt-[8%]'}/>
                       <h3 className={'w-full text-center text-3xl font-bold mt-5'}>Loading...</h3>
                   </div>
               }>
