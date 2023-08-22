@@ -1,11 +1,9 @@
 import Layout from "../../components/Layout";
-
-
 import React from 'react';
-import { Table } from 'antd';
+import {Table, Button, Space} from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import {User} from "../../Model/User.ts";
-import {useGetUsers} from "../../api/users.ts";
+import {useDeleteUser, useGetUsers} from "../../Service/UserService.ts";
 
 const columns: ColumnsType<User> = [
     {
@@ -67,31 +65,54 @@ const columns: ColumnsType<User> = [
 ];
 
 
-
-
-const rowSelection = {
-    onChange: (selectedRowKeys: React.Key[], selectedRows: User[]) => {
-        console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-    },
-    getCheckboxProps: (record: User) => ({
-        disabled: record.name === 'Disabled User',
-        name: record.name,
-    }),
-};
-
 export const Users: React.FC = () => {
     const {data,isSuccess} = useGetUsers();
+    const[selected,setSelected]= React.useState<number[]>([]);
+    const {mutate} = useDeleteUser(selected);
+
+    const rowSelection = {
+        onChange: (selectedRowKeys: React.Key[], selectedRows: User[]) => {
+            if(selectedRows.length>0) {
+                setSelected(selectedRowKeys as number[]);
+            }
+            else{
+                setSelected([]);
+            }
+            console.log(selectedRowKeys);
+        },
+        getCheckboxProps: (record: User) => ({
+            disabled: record.name === 'Disabled User',
+            name: record.name,
+        }),
+    };
+
     return isSuccess && (
         <Layout>
+            <Space className='flex flex-row gap-2 mb-5'>
+                <Button type="primary" className='bg-[#1677ff]' size={'large'}>
+                    Add User
+                </Button>
+                <Button
+                    danger
+                    size={'large'}
+                    type='primary'
+                    className={`${selected.length>0?'block':'hidden'} `}
+                    onClick={()=>{selected?.length && mutate() }}
+                >
+                    Delete All
+                </Button>
+            </Space>
             <Table
+                rowKey={(record) => record.id}
                 rowSelection={{
                     type: "checkbox",
                     ...rowSelection,
                 }}
                 columns={columns}
-                dataSource={data?.data.users}
-                pagination={{ defaultPageSize: 10, showSizeChanger: true, pageSizeOptions:["6","10","12"]}}
+                dataSource={data}
+                pagination={{pageSize:8}}
             />
         </Layout>
     );
 };
+

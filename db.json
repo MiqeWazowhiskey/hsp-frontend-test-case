@@ -1,27 +1,88 @@
 {
-  "data": {
-    "users": [
-      {
-        "id": 1,
-        "name": "Leanne Graham",
-        "username": "Bret",
-        "email": "Sincere@april.biz",
-        "registerDate": 10250045,
-        "totalHour": 60,
-        "address": {
-          "street": "Kulas Light",
-          "suite": "Apt. 556",
-          "city": "Gwenborough",
-          "zipcode": "92998-3874"
-        },
-        "phone": "1-770-736-8031 x56442",
-        "website": "hildegard.org",
-        "company": {
-          "name": "Romaguera-Crona",
-          "catchPhrase": "Multi-layered client-server neural-net",
-          "bs": "harness real-time e-markets"
-        }
+  "users": [
+    {
+      "id": 3,
+      "name": "Jane Smith",
+      "username": "janesmith",
+      "email": "janesmith@example.com",
+      "registerDate": 10350000,
+      "totalHour": 80,
+      "address": {
+        "street": "456 Elm St",
+        "suite": "Apt. 123",
+        "city": "Oakville",
+        "zipcode": "56789"
+      },
+      "phone": "1-555-987-6543",
+      "website": "janesmith.com",
+      "company": {
+        "name": "XYZ Corp.",
+        "catchPhrase": "Innovating the future",
+        "bs": "Leading-edge technology solutions"
       }
-    ]
-  }
+    },
+    {
+      "id": 4,
+      "name": "Robert Johnson",
+      "username": "robertjohnson",
+      "email": "robertjohnson@example.com",
+      "registerDate": 10400000,
+      "totalHour": 70,
+      "address": {
+        "street": "789 Oak St",
+        "suite": "Apt. 456",
+        "city": "Maplewood",
+        "zipcode": "10101"
+      },
+      "phone": "1-555-222-3333",
+      "website": "robertjohnson.com",
+      "company": {
+        "name": "Tech Innovators",
+        "catchPhrase": "Driving technological excellence",
+        "bs": "Creating the future of tech"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Robert Johnson",
+      "username": "robertjohnson",
+      "email": "robertjohnson@example.com",
+      "registerDate": 10400000,
+      "totalHour": 70,
+      "address": {
+        "street": "789 Oak St",
+        "suite": "Apt. 456",
+        "city": "Maplewood",
+        "zipcode": "10101"
+      },
+      "phone": "1-555-222-3333",
+      "website": "robertjohnson.com",
+      "company": {
+        "name": "Tech Innovators",
+        "catchPhrase": "Driving technological excellence",
+        "bs": "Creating the future of tech"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Emily Brown",
+      "username": "emilybrown",
+      "email": "emilybrown@example.com",
+      "registerDate": 10450000,
+      "totalHour": 65,
+      "address": {
+        "street": "987 Pine St",
+        "suite": "Apt. 789",
+        "city": "Cedarville",
+        "zipcode": "20202"
+      },
+      "phone": "1-555-999-8888",
+      "website": "emilybrown.com",
+      "company": {
+        "name": "InnovateTech",
+        "catchPhrase": "Pioneering innovation",
+        "bs": "Transforming industries through tech"
+      }
+    }
+  ]
 }
