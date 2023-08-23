@@ -128,6 +128,7 @@ export const Users: React.FC = () => {
                         type='primary'
                         className={`${selected.length>0?'block':'hidden'} `}
                         onClick={()=>{
+                            alert('Are you sure you want to delete these users?')
                             selected?.length && mutate(selected);
                             setSelected([]);
                         }}
