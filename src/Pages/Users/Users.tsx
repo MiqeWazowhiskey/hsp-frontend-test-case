@@ -71,8 +71,24 @@ export const Users: React.FC = () => {
     const[selected,setSelected]= React.useState<number[]>([]);
     const {mutate} = useDeleteUser();
     const locate = useNavigate();
-    const handleRowClick = (id: string) => {
-        locate('/edit/'+id)
+    const handleRowClick = (user: User) => {
+        locate('/edit/'
+                + user.id
+                + '?name='+user.name
+                + '&username='+user.username
+                + '&email='+user.email
+                + '&registerDate='+user.registerDate
+                + '&totalHour='+user.totalHour
+                + '&street='+user.address.street
+                + '&suite='+user.address.suite
+                + '&city='+user.address.city
+                + '&zipcode='+user.address.zipcode
+                + '&phone='+user.phone
+                + '&website='+user.website
+                + '&companyName='+user.company.name
+                + '&companyCatchPhrase='+user.company.catchPhrase
+                + '&companyBs='+user.company.bs
+        );
     }
     const rowSelection = {
         onChange: (selectedRowKeys: React.Key[], selectedRows: User[]) => {
@@ -116,7 +132,7 @@ export const Users: React.FC = () => {
                 dataSource={data}
                 pagination={{pageSize:8}}
                 onRow={(record: User) => ({
-                    onClick: () => handleRowClick(record.id), // Handle row click
+                    onClick: () => handleRowClick(record), // Handle row click
                 })}
             />
         </Layout>

@@ -30,15 +30,11 @@
     font-family: 'Raleway', sans-serif;
 }
 
-/* Fallback screen styles */
-.suspense-fallback {
+.fallback {
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 2s ease-in-out, visibility 2s ease-in-out;
+
 }
 
-/* Active class to show the loading screen */
-.suspense-fallback.active {
-    opacity: 1;
-    visibility: visible;
+.fallback.active {
+    opacity: 1;transition: opacity 5s ease-in-out;
 }

@@ -4,20 +4,16 @@ import {ErrorPage} from "./Pages/Error";
 import {lazy, Suspense} from "react";
 
 const Dashboard = lazy(async () => {
-    await new Promise(resolve => setTimeout(resolve, 1000));
     return import('./Pages/Dashboard');
 });
 const Users = lazy(async () => {
-    await new Promise(resolve => setTimeout(resolve, 1000));
     return import('./Pages/Users');
 });
 
 const Edit = lazy(async () => {
-    await new Promise(resolve => setTimeout(resolve, 1000));
     return import('./Pages/Edit');
 });
 const AddUser = lazy(async () => {
-    await new Promise(resolve => setTimeout(resolve, 1000));
     return import('./Pages/AddUser');
 });
 function App() {

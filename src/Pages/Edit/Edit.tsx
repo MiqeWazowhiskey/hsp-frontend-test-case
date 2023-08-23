@@ -11,6 +11,7 @@ import {User} from "../../Model/User.ts";
 export const Edit = () => {
     //id from url
     const {id} = useParams();
+    const queryParams = new URLSearchParams(location.search);
 
 
 
@@ -19,25 +20,25 @@ export const Edit = () => {
     const {mutate,  isSuccess: successUpdate  } = useUpdateUser();
 
 
-    const date = data && new Date(data.registerDate);
+    const date = data && new Date(queryParams.get('registerDate')||data.registerDate);
     const defaultValues = data && {
-        name:  data.name,
-        username:  data.username,
-        email:  data.email,
-        totalHour:  data.totalHour,
+        name:  queryParams.get('name') || data.name,
+        username:   queryParams.get('username') || data.username,
+        email:   queryParams.get('email') || data.email,
+        totalHour:   queryParams.get('totalHour') || data.totalHour,
         registerDate:   `${date!.getFullYear()}-${String(date!.getMonth() + 1).padStart(2, '0')}-${String(date!.getDate()).padStart(2, '0')}`,
         address: {
-            street:  data.address.street,
-            suite:  data.address.suite,
-            city:  data.address.city,
-            zipcode:  data.address.zipcode,
+            street: queryParams.get('street') || data.address.street,
+            suite: queryParams.get('suite') || data.address.suite,
+            city: queryParams.get('city') || data.address.city,
+            zipcode: queryParams.get('zipcode') || data.address.zipcode,
         },
-        phone:  data.phone,
-        website:  data.website,
+        phone: queryParams.get('phone') || data.phone,
+        website: queryParams.get('website') || data.website,
         company: {
-            name:  data.company.name,
-            catchPhrase:  data.company.catchPhrase,
-            bs:  data.company.bs,
+            name: queryParams.get('companyName') || data.company.name,
+            catchPhrase: queryParams.get('catchPhrase') || data.company.catchPhrase,
+            bs: queryParams.get('bs') || data.company.bs,
         },
     };
 
