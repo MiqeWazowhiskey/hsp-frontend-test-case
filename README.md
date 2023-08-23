@@ -1,12 +1,12 @@
-#HSP Frontend Test Case
+# HSP Frontend Test Case
 
 
-###Caching, refetching and communication with backend provided with Tanstack Query.
-###Table, dashboard and some minor components created with AntDesign.
-###Data redundancy prevented with React Lazy and Suspense.
-###Components designed for reusability.
+### Caching, refetching and communication with backend provided with Tanstack Query.
+### Table, dashboard and some minor components created with AntDesign.
+### Data redundancy prevented with React Lazy and Suspense.
+### Components designed for reusability.
 
-##ScreenShots
+## ScreenShots
 
 ![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/e9af4ca9-d859-437d-8217-ac4b6c1171e8)
 
