@@ -98,7 +98,7 @@ export const Dashboard: React.FC = () => {
                 </Card>
 
             </div>
-            <Card title={`Total Users : ${allUsers?.length}`} className={'ml-auto mr-auto h-1/3 w-full mt-5 hidden lg:flex'}>
+            <Card title={`Total Users : ${allUsers?.length}`} className={'ml-auto mr-auto h-1/3 w-full mt-5 hidden lg:block'}>
                 <div className={'w-full flex justify-center'}>
                 <LineChart width={800} height={180} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                     <Line type="monotone" dataKey="uv" stroke="#8884d8" />
