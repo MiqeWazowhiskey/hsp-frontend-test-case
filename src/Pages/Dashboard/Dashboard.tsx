@@ -1,11 +1,90 @@
 import Layout from "../../components/Layout";
 import Card from "../../components/Card";
+import React from "react";
+import {CalendarOutlined, MailOutlined, UserOutlined} from "@ant-design/icons";
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
+import {
+    useGetSortedUserByHour,
+    useGetUsers
+} from "../../Service/UserService.ts";
 
 export const Dashboard: React.FC = () => {
+
+    const {data: hourlyData} = useGetSortedUserByHour();
+    // I am going to use raw data just because of to show my frontend skills
+    const{data: allUsers} = useGetUsers();
+
+    const data = [{name: '2019', uv: 80, pv: 2400, amt: 2400},
+        {name: '2020', uv: 55, pv: 2400, amt: 2400},
+        {name: '2021', uv: 44, pv: 2400, amt: 2400},
+        {name: '2022', uv: 60, pv: 2400, amt: 2400},
+        {name: '2023', uv: allUsers?.length || 32 , pv: 2400, amt: 2400}];
+
+
     return (
         <Layout>
-            <Card title='Card Title' className='w-1/2'>
-                <div className='text-2xl'>Card Content</div>
+            <div className={'flex flex-row gap-4'}>
+                <Card title='Mostly Active Users' className='w-1/2 min-h-2/3'>
+                    <div className='text-2xl flex flex-row gap-4'>
+                        {hourlyData && hourlyData.slice(0,3).map((user, index) => {
+                            return (
+                                <Card key={index} className={'w-1/3 text-center hover:scale-105 transition-all'} title={''}>
+                                    <UserOutlined className={'text-5xl border-4 rounded-full p-5 text-[#164E63] border-[#164E63] mb-4'}/>
+                                    <h2 className={'text-xl font-bold mb-2'}> {user.username}</h2>
+                                    <p className={'text-sm font-light mb-2'}> {user.email} </p>
+                                    <p className={'text-sm font-light mb-2'}> {user.name} </p>
+                                    <p className={'text-sm font-light mb-2'}> {user.registerDate} </p>
+                                    <p className={'text-sm font-light mb-2'}> {user.company.name} </p>
+                                    <p className={'text-md font-normal'}> Total Hour : {user.totalHour} </p>
+                                </Card>
+                            )
+                        })}
+                    </div>
+                </Card>
+
+                <Card title='Last Registered' className='w-1/2 min-h-full'>
+                    <div className='text-2xl flex flex-col gap-4'>
+                        {allUsers && allUsers
+                            .sort((a, b) => {
+                                const dateA: number = new Date(a.registerDate).getTime();
+                                const dateB: number = new Date(b.registerDate).getTime();
+                                return dateA - dateB;
+                            }).slice(0,3).map((user, index) => {
+                            return (
+                                <Card key={index} className={'w-full text-center hover:scale-105 transition-all'} title={''}>
+                                    <div className={'flex flex-row justify-center gap-5 mb-4'}>
+                                        <UserOutlined/>
+                                        <p className={'text-sm font-bold mb-2'}> {user.name} </p>
+                                        <MailOutlined/>
+                                        <p className={'text-sm font-bold mb-2'}> {user.email} </p>
+                                        <CalendarOutlined />
+                                        <p className={'text-sm font-light mb-2'}>
+                                            {
+                                                user.registerDate.toString().substring(0,4)
+                                                + '/'
+                                                + user.registerDate.toString().substring(6,8)
+                                                + '/'
+                                                + user.registerDate.toString().substring(4,6)
+                                            }
+                                        </p>
+                                    </div>
+                                </Card>
+                            )
+                        })}
+                    </div>
+                </Card>
+
+            </div>
+            <Card title={`Total Users : ${allUsers?.length}`} className={'ml-auto mr-auto h-1/3 w-full mt-5'}>
+                <div className={'w-full flex justify-center'}>
+                <LineChart width={800} height={180} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                </LineChart>
+                </div>
             </Card>
         </Layout>
     );

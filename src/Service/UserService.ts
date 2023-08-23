@@ -1,5 +1,13 @@
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
-import {fetchUser, deleteUser, fetchUserById, updateUser, addUser} from "../api/users.ts";
+import {
+    fetchUser,
+    deleteUser,
+    fetchUserById,
+    updateUser,
+    addUser,
+    fetchUserHourly,
+    fetchUserRegistered
+} from "../api/users.ts";
 import {User} from "../Model/User.ts";
 import {useNavigate} from "react-router-dom";
 export function useGetUsers() {
@@ -55,6 +63,21 @@ export function useAddUser(){
         },
     });
 }
+//get sorted user by hour
+export function useGetSortedUserByHour(){
+    return useQuery({
+        queryKey: ["users"],
+        queryFn: fetchUserHourly,
+    });
+}
+
+//get sorted user by registerDate
+export function useGetSortedUserByRegisterDate(){
+    return useQuery({
+        queryKey: ["users"],
+        queryFn: fetchUserRegistered,
+    });
+}
 
 export function formatDateToNumeric(date:Date) {
     const year = date.getFullYear();
@@ -63,3 +86,4 @@ export function formatDateToNumeric(date:Date) {
     const numericFormat = `${year}${month}${day}00`;
     return parseInt(numericFormat, 10);
 }
+

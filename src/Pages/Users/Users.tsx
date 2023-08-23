@@ -24,7 +24,7 @@ const columns: ColumnsType<User> = [
         dataIndex: 'registerDate',
         render: (date: number) => {
             const text = '' + date; // Convert to string
-            const formattedDate = '' + text.substring(0,4) + '/' + text.substring(6,8) + '/' + text.substring(4,6);  // Format date
+            const formattedDate = text.substring(0,4) + '/' + text.substring(6,8) + '/' + text.substring(4,6);  // Format date
             return <span>{formattedDate}</span>;
         },
     },

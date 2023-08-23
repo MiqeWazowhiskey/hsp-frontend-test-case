@@ -65,3 +65,23 @@ export const addUser = async (user: User) => {
         console.error(error);
     }
 }
+
+//get user hourly sorted
+export const fetchUserHourly = async () => {
+    try {
+        const res = await axios.get<User[]>(urlGenerator( "users", {sort: 'totalHour'}));
+        return res.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+//get user registered sorted
+export const fetchUserRegistered = async () => {
+    try {
+        const res = await axios.get<User[]>(urlGenerator( "users", {sort: 'registerDate'}));
+        return res.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
