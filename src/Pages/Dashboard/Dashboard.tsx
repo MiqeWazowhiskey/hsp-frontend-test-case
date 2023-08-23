@@ -39,13 +39,13 @@ export const Dashboard: React.FC = () => {
     }
     return (
         <Layout>
-            <div className={'flex flex-row gap-4'}>
-                <Card title='Mostly Active Users' className='w-1/2 min-h-2/3'>
-                    <div className='text-2xl flex flex-row gap-4'>
+            <div className={'flex lg:flex-row flex-col gap-4'}>
+                <Card title='Mostly Active Users' className='lg:w-1/2 w-full min-h-2/3'>
+                    <div className='text-2xl flex lg:flex-row flex-col gap-4'>
                         {hourlyData && hourlyData.slice(0,3).map((user, index) => {
                             return (
                                 <NavLink
-                                    className={'w-1/3 text-center hover:scale-105 transition-all hover:text-black'}
+                                    className={'lg:w-1/3 w-full text-center hover:scale-105 transition-all hover:text-black'}
                                     to={navLinkGenerator(user)}
                                 >
                                     <Card key={index} title={''}>
@@ -63,7 +63,7 @@ export const Dashboard: React.FC = () => {
                     </div>
                 </Card>
 
-                <Card title='Last Registered' className='w-1/2 min-h-full'>
+                <Card title='Last Registered' className='lg:w-1/2 w-full min-h-full'>
                     <div className='text-2xl flex flex-col gap-4'>
                         {allUsers && allUsers
                             .sort((a, b) => {
@@ -74,13 +74,13 @@ export const Dashboard: React.FC = () => {
                             return (
                                 <NavLink to={navLinkGenerator(user)} className={'w-full text-center hover:scale-105 transition-all hover:text-black'} >
                                     <Card key={index} title={''}>
-                                        <div className={'flex flex-row justify-center gap-5 mb-4'}>
+                                        <div className={'flex flex-col lg:flex-row justify-center gap-5 mb-4'}>
                                             <UserOutlined/>
-                                            <p className={'text-sm font-bold mb-2'}> {user.name} </p>
+                                            <p className={'lg:text-sm text-xs font-bold mb-2'}> {user.name} </p>
                                             <MailOutlined/>
-                                            <p className={'text-sm font-bold mb-2'}> {user.email} </p>
+                                            <p className={'lg:text-sm text-xs font-bold mb-2'}> {user.email} </p>
                                             <CalendarOutlined />
-                                            <p className={'text-sm font-light mb-2'}>
+                                            <p className={'lg:text-sm text-xs font-light mb-2'}>
                                                 {
                                                     user.registerDate.toString().substring(0,4)
                                                     + '/'
@@ -98,7 +98,7 @@ export const Dashboard: React.FC = () => {
                 </Card>
 
             </div>
-            <Card title={`Total Users : ${allUsers?.length}`} className={'ml-auto mr-auto h-1/3 w-full mt-5'}>
+            <Card title={`Total Users : ${allUsers?.length}`} className={'ml-auto mr-auto h-1/3 w-full mt-5 hidden lg:flex'}>
                 <div className={'w-full flex justify-center'}>
                 <LineChart width={800} height={180} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                     <Line type="monotone" dataKey="uv" stroke="#8884d8" />

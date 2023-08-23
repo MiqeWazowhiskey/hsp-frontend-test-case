@@ -23,7 +23,7 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
     const navigation = useNavigate();
     return (
 
-        <LayoutAnt className='w-screen h-screen'>
+        <LayoutAnt className='w-screen h-full lg:h-screen'>
             <Sider trigger={null} collapsible collapsed={collapsed}>
                 <div className="demo-logo-vertical" />
                 <Menu
@@ -55,12 +55,13 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                 />
             </Sider>
             <LayoutAnt>
-                <Header style={{
+                <Header
+                    className={'lg:h-[8%] md:h-[5%] h-[3%]'}
+                    style={{
                     padding: 0,
                     background: colorBgContainer,
                     display:'flex',
                     justifyContent:'space-between',
-                    height:'8%',
                     alignItems:'center',
                 }}>
                     <Button
@@ -85,17 +86,17 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                     />
                   <NavLink to={'/'}>
                       {/*There were conflict about path, so that I need to specify the path */}
-                      <img src='../../../public/logo.png'  alt="logo" className='w-64 p-3  object-contain' />
+                      <img src='../../../public/logo.png'  alt="logo" className='w-64 p-3 hidden lg:flex object-contain' />
                   </NavLink>
 
                 </Header>
                 <Content
                     style={{
                         margin: '24px 16px',
-                        padding: 24,
                         minHeight: 280,
                         background: colorBgContainer
                     }}
+                    className={'lg:p-[24] p-[12]'}
                 >
 
                     {children}
