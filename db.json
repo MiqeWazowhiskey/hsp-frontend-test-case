@@ -6,7 +6,7 @@
       "username": "janesmithh",
       "email": "janesmith@example.com",
       "totalHour": 80,
-      "registerDate": 1970012300,
+      "registerDate": 2022020900,
       "address": {
         "street": "456 Elm St",
         "suite": "Apt. 123",
@@ -27,7 +27,7 @@
       "username": "robertjohnson",
       "email": "robertjohnson@example.com",
       "totalHour": 70,
-      "registerDate": 1970012300,
+      "registerDate": 2019090500,
       "address": {
         "street": "789 Oak St.",
         "suite": "Apt. 456",
@@ -69,7 +69,7 @@
       "username": "emilybrown",
       "email": "emilybrown@example.com",
       "totalHour": 65,
-      "registerDate": 1986102900,
+      "registerDate": 1986100200,
       "address": {
         "street": "987 Pine St",
         "suite": "Apt. 789",

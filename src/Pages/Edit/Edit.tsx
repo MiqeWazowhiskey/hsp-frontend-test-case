@@ -12,17 +12,17 @@ export const Edit = () => {
     //id from url
     const {id} = useParams();
 
-    const {mutate,  isSuccess: successUpdate  } = useUpdateUser();
+    const {mutate} = useUpdateUser();
 
     const queryParams = new URLSearchParams(window.location.search);
+
     const dateStr = queryParams.get('registerDate');
-    const date = new Date(parseInt(dateStr as string) * 1000);
     const defaultValues = queryParams && {
         name: queryParams.get('name') || '',
         username: queryParams.get('username') || '',
         email: queryParams.get('email') || '',
         totalHour: queryParams.get('totalHour') || '',
-        registerDate: `${date!.getFullYear()}-${String(date!.getMonth() + 1).padStart(2, '0')}-${String(date!.getDate()).padStart(2, '0')}` || '',
+        registerDate: dateStr!.substring(0,4) + '-' + dateStr!.substring(4,6)+ '-' + dateStr!.substring(6,8)   || '',
         address: {
             street: queryParams.get('street') || '',
             suite: queryParams.get('suite') || '',
@@ -74,11 +74,12 @@ export const Edit = () => {
         mutate({id: id as string, user: requestBody as User});
     };
 
+
+
     return (
         <Layout>
             <h3 className={'flex text-2xl font-bold justify-between text-[#0A3342]'}>
                 User Details
-                {successUpdate && <Alert message="Success" type="success" showIcon />}
             </h3>
 
             <Form onFinish={handleSubmit((values) => {

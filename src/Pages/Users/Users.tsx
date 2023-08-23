@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout";
 import React from 'react';
-import {Table, Button, Space} from 'antd';
+import {Table, Button, Space, Alert} from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import {User} from "../../Model/User.ts";
 import {useDeleteUser, useGetUsers} from "../../Service/UserService.ts";
@@ -22,6 +22,11 @@ const columns: ColumnsType<User> = [
     {
         title: 'Register Date',
         dataIndex: 'registerDate',
+        render: (date: number) => {
+            const text = '' + date; // Convert to string
+            const formattedDate = '' + text.substring(0,4) + '/' + text.substring(6,8) + '/' + text.substring(4,6);  // Format date
+            return <span>{formattedDate}</span>;
+        },
     },
     {
         title: 'Total Hours',
@@ -71,6 +76,8 @@ export const Users: React.FC = () => {
     const[selected,setSelected]= React.useState<number[]>([]);
     const {mutate} = useDeleteUser();
     const locate = useNavigate();
+    const queryParams = new URLSearchParams(location.search);
+
     const handleRowClick = (user: User) => {
         locate('/edit/'
                 + user.id
@@ -108,19 +115,27 @@ export const Users: React.FC = () => {
 
     return isSuccess && (
         <Layout>
-            <Space className='flex flex-row gap-2 mb-5'>
-                <Button type="primary" className='bg-[#1677ff]' size={'middle'}>
-                    <NavLink to={'/add'} className={'text-sm'}>Add User</NavLink>
-                </Button>
-                <Button
-                    danger
-                    size={'middle'}
-                    type='primary'
-                    className={`${selected.length>0?'block':'hidden'} `}
-                    onClick={()=>{selected?.length && mutate(selected);setSelected([]) }}
-                >
-                    <p className={'text-sm'}> Delete All</p>
-                </Button>
+            <Space className='flex mb-5 w-full justify-between'>
+                <div className={'flex flex-row gap-2 '}>
+                    <NavLink to={'/add'} className={'text-sm'}>
+                        <Button type="primary" className='bg-[#1677ff]' size={'middle'}>
+                            Add User
+                        </Button>
+                    </NavLink>
+                    <Button
+                        danger
+                        size={'middle'}
+                        type='primary'
+                        className={`${selected.length>0?'block':'hidden'} `}
+                        onClick={()=>{
+                            selected?.length && mutate(selected);
+                            setSelected([]);
+                        }}
+                    >
+                        <p className={'text-sm'}> Delete All</p>
+                    </Button>
+                </div>
+                {queryParams.get('success') && <Alert message="Success" type="success" showIcon className={' w-fit '}/>}
             </Space>
             <Table
                 rowKey={(record) => record.id}

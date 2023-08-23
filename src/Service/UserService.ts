@@ -30,12 +30,15 @@ interface updateInterface {
     id: string;
     user: User;
 }
+
 export function useUpdateUser(){
+    const navigate = useNavigate();
     const queryClient = useQueryClient();
     return useMutation({
         mutationFn: ({id, user}:updateInterface) => updateUser(id,user),
         onSuccess: () => {
             queryClient.invalidateQueries({queryKey: ["users"]}).then(r =>r);
+            navigate("/users?success=true");
         },
     });
 }
