@@ -30,7 +30,7 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                     theme="dark"
                     mode="inline"
                     className='text-lg'
-                    defaultSelectedKeys={['/']}
+                    defaultSelectedKeys={['1']}
                     selectedKeys={[location.pathname]}
                     items={
                         [

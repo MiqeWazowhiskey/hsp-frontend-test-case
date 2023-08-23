@@ -4,8 +4,14 @@
 @tailwind utilities;
 
 
-
-
+.ant-menu-item {
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+.ant-menu-item-icon > svg{
+    font-size: 32px;
+      display: flex;
+}
 .ant-layout-sider-children, .ant-menu{
     background-color:#0A3342;
  }
