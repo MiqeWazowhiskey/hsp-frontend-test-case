@@ -2,11 +2,10 @@ import Layout from "../../components/Layout";
 import Card from "../../components/Card";
 import React from "react";
 import {CalendarOutlined, MailOutlined, UserOutlined} from "@ant-design/icons";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
-import {
-    useGetSortedUserByHour,
-    useGetUsers
-} from "../../Service/UserService.ts";
+import {CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
+import {useGetSortedUserByHour, useGetUsers} from "../../Service/UserService.ts";
+import {NavLink} from "react-router-dom";
+import {User} from "../../Model/User.ts";
 
 export const Dashboard: React.FC = () => {
 
@@ -20,7 +19,24 @@ export const Dashboard: React.FC = () => {
         {name: '2022', uv: 60, pv: 2400, amt: 2400},
         {name: '2023', uv: allUsers?.length || 32 , pv: 2400, amt: 2400}];
 
-
+    const navLinkGenerator = (user: User) => {
+        return 'edit/'
+            + user.id
+            + '?name=' + user.name
+            + '&username=' + user.username
+            + '&email=' + user.email
+            + '&registerDate=' + user.registerDate
+            + '&totalHour=' + user.totalHour
+            + '&street=' + user.address.street
+            + '&suite=' + user.address.suite
+            + '&city=' + user.address.city
+            + '&zipcode=' + user.address.zipcode
+            + '&phone=' + user.phone
+            + '&website=' + user.website
+            + '&companyName=' + user.company.name
+            + '&companyCatchPhrase=' + user.company.catchPhrase
+            + '&companyBs=' + user.company.bs;
+    }
     return (
         <Layout>
             <div className={'flex flex-row gap-4'}>
@@ -28,15 +44,20 @@ export const Dashboard: React.FC = () => {
                     <div className='text-2xl flex flex-row gap-4'>
                         {hourlyData && hourlyData.slice(0,3).map((user, index) => {
                             return (
-                                <Card key={index} className={'w-1/3 text-center hover:scale-105 transition-all'} title={''}>
-                                    <UserOutlined className={'text-5xl border-4 rounded-full p-5 text-[#164E63] border-[#164E63] mb-4'}/>
-                                    <h2 className={'text-xl font-bold mb-2'}> {user.username}</h2>
-                                    <p className={'text-sm font-light mb-2'}> {user.email} </p>
-                                    <p className={'text-sm font-light mb-2'}> {user.name} </p>
-                                    <p className={'text-sm font-light mb-2'}> {user.registerDate} </p>
-                                    <p className={'text-sm font-light mb-2'}> {user.company.name} </p>
-                                    <p className={'text-md font-normal'}> Total Hour : {user.totalHour} </p>
-                                </Card>
+                                <NavLink
+                                    className={'w-1/3 text-center hover:scale-105 transition-all hover:text-black'}
+                                    to={navLinkGenerator(user)}
+                                >
+                                    <Card key={index} title={''}>
+                                        <UserOutlined className={'text-5xl border-4 rounded-full p-5 text-[#164E63] border-[#164E63] mb-4'}/>
+                                        <h2 className={'text-xl font-bold mb-2'}> {user.username}</h2>
+                                        <p className={'text-sm font-light mb-2'}> {user.email} </p>
+                                        <p className={'text-sm font-light mb-2'}> {user.name} </p>
+                                        <p className={'text-sm font-light mb-2'}> {user.registerDate} </p>
+                                        <p className={'text-sm font-light mb-2'}> {user.company.name} </p>
+                                        <p className={'text-md font-normal'}> Total Hour : {user.totalHour} </p>
+                                    </Card>
+                                </NavLink>
                             )
                         })}
                     </div>
@@ -51,24 +72,26 @@ export const Dashboard: React.FC = () => {
                                 return dateA - dateB;
                             }).slice(0,3).map((user, index) => {
                             return (
-                                <Card key={index} className={'w-full text-center hover:scale-105 transition-all'} title={''}>
-                                    <div className={'flex flex-row justify-center gap-5 mb-4'}>
-                                        <UserOutlined/>
-                                        <p className={'text-sm font-bold mb-2'}> {user.name} </p>
-                                        <MailOutlined/>
-                                        <p className={'text-sm font-bold mb-2'}> {user.email} </p>
-                                        <CalendarOutlined />
-                                        <p className={'text-sm font-light mb-2'}>
-                                            {
-                                                user.registerDate.toString().substring(0,4)
-                                                + '/'
-                                                + user.registerDate.toString().substring(6,8)
-                                                + '/'
-                                                + user.registerDate.toString().substring(4,6)
-                                            }
-                                        </p>
-                                    </div>
-                                </Card>
+                                <NavLink to={navLinkGenerator(user)} className={'w-full text-center hover:scale-105 transition-all hover:text-black'} >
+                                    <Card key={index} title={''}>
+                                        <div className={'flex flex-row justify-center gap-5 mb-4'}>
+                                            <UserOutlined/>
+                                            <p className={'text-sm font-bold mb-2'}> {user.name} </p>
+                                            <MailOutlined/>
+                                            <p className={'text-sm font-bold mb-2'}> {user.email} </p>
+                                            <CalendarOutlined />
+                                            <p className={'text-sm font-light mb-2'}>
+                                                {
+                                                    user.registerDate.toString().substring(0,4)
+                                                    + '/'
+                                                    + user.registerDate.toString().substring(6,8)
+                                                    + '/'
+                                                    + user.registerDate.toString().substring(4,6)
+                                                }
+                                            </p>
+                                        </div>
+                                    </Card>
+                                </NavLink>
                             )
                         })}
                     </div>
@@ -89,3 +112,5 @@ export const Dashboard: React.FC = () => {
         </Layout>
     );
 }
+
+

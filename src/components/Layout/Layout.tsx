@@ -5,7 +5,7 @@ import {
      UserOutlined,
     UnorderedListOutlined} from '@ant-design/icons';
 import { Layout as LayoutAnt, Menu, Button, theme } from 'antd';
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 
 const { Header,
         Sider,
@@ -14,12 +14,13 @@ const { Header,
 interface LayoutProps {
     children:  React.ReactNode;
 }
+
 export const Layout: React.FC<LayoutProps> = ({children}) => {
     const [collapsed, setCollapsed] = useState(false);
     const {
         token: { colorBgContainer },
     } = theme.useToken();
-
+    const navigation = useNavigate();
     return (
 
         <LayoutAnt className='w-screen h-screen'>
@@ -31,10 +32,27 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                     className='text-lg'
                     defaultSelectedKeys={['1']}
                     selectedKeys={[location.pathname]}
-                >
-                    <Menu.Item key="/" icon={<UserOutlined />}><NavLink to={'/'}>Dashboard</NavLink> </Menu.Item>
-                    <Menu.Item key="/users" icon={<UnorderedListOutlined />}> <NavLink to={'/users'}>Users</NavLink>  </Menu.Item>
-                </Menu>
+                    items={
+                        [
+                            {
+                                key: '/',
+                                icon: <UserOutlined/>,
+                                label: 'Dashboard',
+                                onClick: () => {
+                                    navigation('/');
+                                }
+                            },
+                            {
+                                key: '/users',
+                                icon: <UnorderedListOutlined/>,
+                                label: 'Users',
+                                onClick: () => {
+                                    navigation('/users');
+                                }
+                            }
+                        ]
+                    }
+                />
             </Sider>
             <LayoutAnt>
                 <Header style={{
