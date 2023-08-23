@@ -1,27 +1,11 @@
-# React + TypeScript + Vite
+![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/e9af4ca9-d859-437d-8217-ac4b6c1171e8)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/21a2cb1c-2273-4c0d-b1a2-498e1c263e97)
 
-Currently, two official plugins are available:
+![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/83ade165-a9b9-4edd-9536-5c7eabd642bc)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Caching, refetching and communication with backend provided with Tanstack Query.
+Table, dashboard and some minor components created with AntDesign.
+Data redundancy prevented with React Lazy and Suspense.
+Components designed for reusability.
