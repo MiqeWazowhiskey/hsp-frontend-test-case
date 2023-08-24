@@ -10,9 +10,11 @@
 
 ## ScreenShots
 
-![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/215d4ec4-b8ca-4851-b933-ab5f4a27cd13)
+![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/6c5e6941-b529-4054-9ad7-42d1846bda4c)
 
-![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/fb3dc85d-cef1-42f2-8988-ad8beebe1276)
+![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/a00348a5-36e0-4c18-96de-69dee0858ee2)
+
+![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/da2ab7f8-3cb3-4466-9a33-518c52a93689)
 
 ![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/57613cb5-38a9-43e1-89ab-fc08e2a0e09c)
 
