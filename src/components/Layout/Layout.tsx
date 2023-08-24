@@ -69,12 +69,12 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                         icon={collapsed ?
                             <MenuUnfoldOutlined
                                 style={{
-                                    fontSize: '32px',
+                                    fontSize: '20px',
                                 }}
                             /> :
                             <MenuFoldOutlined
                                 style={{
-                                    fontSize: '32px',
+                                    fontSize: '20px',
                                 }}
                             />}
                         onClick={() => setCollapsed(!collapsed)}
@@ -94,9 +94,9 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                     style={{
                         margin: '24px 16px',
                         minHeight: 280,
-                        background: colorBgContainer
+                        background: colorBgContainer,
                     }}
-                    className={'lg:p-[24] p-[12]'}
+                    className={'lg:p-[24] p-[12] overflow-auto'}
                 >
 
                     {children}

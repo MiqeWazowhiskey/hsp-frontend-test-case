@@ -3,15 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.ant-menu-item {
-    padding-top: 32px;
-    padding-bottom: 32px;
-}
-.ant-menu-item-icon > svg{
-    font-size: 32px;
-      display: flex;
-}
 .ant-layout-sider-children, .ant-menu{
     background-color:#0A3342;
  }
@@ -21,8 +12,10 @@
 .ant-layout-content{
     background-color: #FFEECC;
 }
-.ant-table-cell{
-    font-size:  0.62vw;
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }
 .ant-table-cell:hover{
     cursor: pointer;

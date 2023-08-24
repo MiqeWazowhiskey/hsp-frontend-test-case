@@ -73,11 +73,14 @@ export const AddUser = () => {
 
     return (
         <Layout>
-            <h3 className={'flex text-2xl font-bold justify-between text-[#0A3342]'}>
+            <h3 className={'flex text-2xl font-bold justify-between text-[#0A3342]  ml-5 mt-5'}>
                 User Details
             </h3>
+            <div className={'w-full flex justify-center'}>
 
-            <Form onFinish={handleSubmit((values) => {
+            <Form
+                className={'w-[95%]'}
+                onFinish={handleSubmit((values) => {
                 onSubmit(values);
             })}>
                 <div id={'InputContainer'} className="grid grid-cols-12 m-auto mt-[1%] gap-4">
@@ -224,6 +227,7 @@ export const AddUser = () => {
                 </div>
 
             </Form>
+            </div>
         </Layout>
     )
 }

@@ -3,7 +3,7 @@
     {
       "id": "3",
       "name": "Jane Smith",
-      "username": "janesmithh",
+      "username": "janesmith",
       "email": "janesmith@example.com",
       "totalHour": 80,
       "registerDate": 2022020900,
@@ -24,7 +24,7 @@
     {
       "id": "4",
       "name": "Robert Johnson",
-      "username": "robertjohnson",
+      "username": "robertjohnsonn",
       "email": "robertjohnson@example.com",
       "totalHour": 70,
       "registerDate": 2019090500,
@@ -82,6 +82,27 @@
         "name": "InnovateTech",
         "catchPhrase": "Pioneering innovation",
         "bs": "Transforming industries through tech"
+      }
+    },
+    {
+      "id": "10d21cdd-e07f-441c-b60d-1327596c7ff0",
+      "name": "Ali Kağan Yilmaz",
+      "username": "kagan",
+      "email": "examplee@com",
+      "totalHour": 20,
+      "registerDate": 2023081100,
+      "address": {
+        "street": "Abc St.",
+        "suite": "Suite",
+        "city": "Antalya",
+        "zipcode": "07000"
+      },
+      "phone": "5386150257",
+      "website": "kaanyble.com",
+      "company": {
+        "name": "Hibrit Sales",
+        "catchPhrase": "Best for everybody",
+        "bs": "Leading-edge technology solutions"
       }
     }
   ]

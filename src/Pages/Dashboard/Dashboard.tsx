@@ -39,23 +39,22 @@ export const Dashboard: React.FC = () => {
     }
     return (
         <Layout>
-            <div className={'flex lg:flex-row flex-col gap-4'}>
-                <Card title='Mostly Active Users' className='lg:w-1/2 w-full min-h-2/3'>
+            <div className={'p-5 flex flex-col w-full h-full'}>
+            <div className={'h-1/2 flex lg:flex-row flex-col w-full gap-4 items-center'}>
+                <Card title='Mostly Active Users' className='lg:w-1/2 w-full h-full flex flex-col justify-center'>
                     <div className='text-2xl flex lg:flex-row flex-col gap-4'>
                         {hourlyData && hourlyData.slice(0,3).map((user, index) => {
                             return (
                                 <NavLink
-                                    className={'lg:w-1/3 w-full text-center hover:scale-105 transition-all hover:text-black'}
+                                    className={'lg:w-[31.5%] w-full text-center hover:scale-105 transition-all hover:text-black'}
                                     to={navLinkGenerator(user)}
                                 >
-                                    <Card key={index} title={''}>
-                                        <UserOutlined className={'text-5xl border-4 rounded-full p-5 text-[#164E63] border-[#164E63] mb-4'}/>
-                                        <h2 className={'text-xl font-bold mb-2'}> {user.username}</h2>
-                                        <p className={'text-sm font-light mb-2'}> {user.email} </p>
+                                    <Card key={index} title={''} className={'h-full'}>
+                                        <UserOutlined className={'text-3xl text-[#164E63] mb-2'}/>
+                                        <h2 className={'text-lg font-bold mb-2'}> {user.username}</h2>
                                         <p className={'text-sm font-light mb-2'}> {user.name} </p>
-                                        <p className={'text-sm font-light mb-2'}> {user.registerDate} </p>
-                                        <p className={'text-sm font-light mb-2'}> {user.company.name} </p>
-                                        <p className={'text-md font-normal'}> Total Hour : {user.totalHour} </p>
+                                        <p className={'text-sm font-light mb-2'}> {user.address.city} </p>
+                                        <p className={'text-sm font-normal'}> Total Hour : {user.totalHour} </p>
                                     </Card>
                                 </NavLink>
                             )
@@ -63,8 +62,8 @@ export const Dashboard: React.FC = () => {
                     </div>
                 </Card>
 
-                <Card title='Last Registered' className='lg:w-1/2 w-full min-h-full'>
-                    <div className='text-2xl flex flex-col gap-4'>
+                <Card title='Last Registered' className='lg:w-1/2 w-full h-full flex flex-col justify-center'>
+                    <div className='text-lg flex flex-col gap-2'>
                         {allUsers && allUsers
                             .sort((a, b) => {
                                 const dateA: number = new Date(a.registerDate).getTime();
@@ -74,13 +73,13 @@ export const Dashboard: React.FC = () => {
                             return (
                                 <NavLink to={navLinkGenerator(user)} className={'w-full text-center hover:scale-105 transition-all hover:text-black'} >
                                     <Card key={index} title={''}>
-                                        <div className={'flex flex-col lg:flex-row justify-center gap-5 mb-4'}>
+                                        <div className={'flex flex-col lg:flex-row justify-center lg:gap-5 gap-2'}>
                                             <UserOutlined/>
-                                            <p className={'lg:text-sm text-xs font-bold mb-2'}> {user.name} </p>
+                                            <p className={' text-xs font-bold'}> {user.name} </p>
                                             <MailOutlined/>
-                                            <p className={'lg:text-sm text-xs font-bold mb-2'}> {user.email} </p>
+                                            <p className={'text-xs font-bold'}> {user.email} </p>
                                             <CalendarOutlined />
-                                            <p className={'lg:text-sm text-xs font-light mb-2'}>
+                                            <p className={'text-xs font-light'}>
                                                 {
                                                     user.registerDate.toString().substring(0,4)
                                                     + '/'
@@ -96,19 +95,19 @@ export const Dashboard: React.FC = () => {
                         })}
                     </div>
                 </Card>
-
             </div>
-            <Card title={`Total Users : ${allUsers?.length}`} className={'ml-auto mr-auto h-1/3 w-full mt-5 hidden lg:block'}>
-                <div className={'w-full flex justify-center'}>
-                <LineChart width={800} height={180} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-                    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                </LineChart>
-                </div>
-            </Card>
+                <Card title={`Total Users : ${allUsers?.length}`} className={'ml-auto mr-auto h-1/2 w-[95%] mt-5 hidden lg:block'}>
+                    <div className={'w-full flex justify-center'}>
+                        <LineChart width={500} height={180} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                            <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                            <XAxis dataKey="name" />
+                            <YAxis />
+                            <Tooltip />
+                        </LineChart>
+                    </div>
+                </Card>
+            </div>
         </Layout>
     );
 }

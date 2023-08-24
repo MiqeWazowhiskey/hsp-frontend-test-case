@@ -115,6 +115,7 @@ export const Users: React.FC = () => {
 
     return isSuccess && (
         <Layout>
+            <div className={'p-5'}>
             <Space className='flex mb-5 w-full justify-between'>
                 <div className={'flex flex-row gap-2 '}>
                     <NavLink to={'/add'} className={'text-sm'}>
@@ -144,13 +145,15 @@ export const Users: React.FC = () => {
                     type: "checkbox",
                     ...rowSelection,
                 }}
+                className={'w-full'}
                 columns={columns}
                 dataSource={data}
-                pagination={{pageSize:8}}
+                pagination={{pageSize:5,position:['bottomLeft']}}
                 onRow={(record: User) => ({
                     onClick: () => handleRowClick(record), // Handle row click
                 })}
             />
+            </div>
         </Layout>
     );
 };
