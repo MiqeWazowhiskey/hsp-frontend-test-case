@@ -16,7 +16,7 @@
 
 ![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/da2ab7f8-3cb3-4466-9a33-518c52a93689)
 
-![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/57613cb5-38a9-43e1-89ab-fc08e2a0e09c)
+![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/992bbc82-54af-4cc6-9606-573fd45564d9)
 
 TODO: fix css load with minor delay.
 
