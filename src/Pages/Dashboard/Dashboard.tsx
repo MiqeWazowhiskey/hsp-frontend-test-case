@@ -53,6 +53,7 @@ export const Dashboard: React.FC = () => {
                                         <UserOutlined className={'text-3xl text-[#164E63] mb-2'}/>
                                         <h2 className={'text-lg font-bold mb-2'}> {user.username}</h2>
                                         <p className={'text-sm font-light mb-2'}> {user.name} </p>
+                                        <p className={'text-sm font-light mb-2'}> {user.phone} </p>
                                         <p className={'text-sm font-light mb-2'}> {user.address.city} </p>
                                         <p className={'text-sm font-normal'}> Total Hour : {user.totalHour} </p>
                                     </Card>
@@ -72,22 +73,28 @@ export const Dashboard: React.FC = () => {
                             }).slice(0,3).map((user, index) => {
                             return (
                                 <NavLink key={index} to={navLinkGenerator(user)} className={'w-full text-center hover:scale-105 transition-all hover:text-black'} >
-                                    <Card  title={''}>
-                                        <div className={'flex flex-col lg:flex-row justify-center lg:gap-5 gap-2'}>
-                                            <UserOutlined/>
-                                            <p className={' text-xs font-bold'}> {user.name} </p>
-                                            <MailOutlined/>
-                                            <p className={'text-xs font-bold'}> {user.email} </p>
-                                            <CalendarOutlined />
-                                            <p className={'text-xs font-light'}>
-                                                {
-                                                    user.registerDate.toString().substring(0,4)
-                                                    + '/'
-                                                    + user.registerDate.toString().substring(6,8)
-                                                    + '/'
-                                                    + user.registerDate.toString().substring(4,6)
-                                                }
-                                            </p>
+                                    <Card  title={''} className={''}>
+                                        <div className={'flex flex-col lg:flex-row justify-center'}>
+                                            <div className={'w-1/4'}>
+                                                <UserOutlined/>
+                                                <p className={' text-xs font-bold'}> {user.name} </p>
+                                            </div>
+                                            <div className={'w-2/4 '}>
+                                                <MailOutlined/>
+                                                <p className={'text-xs font-bold'}> {user.email} </p>
+                                            </div>
+                                            <div className={'w-1/4 '}>
+                                                <CalendarOutlined />
+                                                <p className={'text-xs font-light'}>
+                                                    {
+                                                        user.registerDate.toString().substring(0,4)
+                                                        + '/'
+                                                        + user.registerDate.toString().substring(6,8)
+                                                        + '/'
+                                                        + user.registerDate.toString().substring(4,6)
+                                                    }
+                                                </p>
+                                            </div>
                                         </div>
                                     </Card>
                                 </NavLink>
