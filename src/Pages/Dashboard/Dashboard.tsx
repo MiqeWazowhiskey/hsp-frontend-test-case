@@ -68,7 +68,7 @@ export const Dashboard: React.FC = () => {
                             .sort((a, b) => {
                                 const dateA: number = new Date(a.registerDate).getTime();
                                 const dateB: number = new Date(b.registerDate).getTime();
-                                return dateA - dateB;
+                                return dateB - dateA;
                             }).slice(0,3).map((user, index) => {
                             return (
                                 <NavLink key={index} to={navLinkGenerator(user)} className={'w-full text-center hover:scale-105 transition-all hover:text-black'} >
