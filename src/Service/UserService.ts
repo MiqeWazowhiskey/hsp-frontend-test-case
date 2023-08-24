@@ -66,7 +66,7 @@ export function useAddUser(){
 //get sorted user by hour
 export function useGetSortedUserByHour(){
     return useQuery({
-        queryKey: ["users"],
+        queryKey: ["usersSortByHour"],
         queryFn: fetchUserHourly,
     });
 }
@@ -74,7 +74,7 @@ export function useGetSortedUserByHour(){
 //get sorted user by registerDate
 export function useGetSortedUserByRegisterDate(){
     return useQuery({
-        queryKey: ["users"],
+        queryKey: ["usersSortByRegisterDate"],
         queryFn: fetchUserRegistered,
     });
 }

@@ -69,8 +69,8 @@ export const addUser = async (user: User) => {
 //get user hourly sorted
 export const fetchUserHourly = async () => {
     try {
-        const res = await axios.get<User[]>(urlGenerator( "users", {sort: 'totalHour'}));
-        return res.data;
+        const res = await axios.get<User[]>(urlGenerator( "users", {_sort: 'totalHour'}));
+        return res.data.reverse();
     } catch (error) {
         console.error(error);
     }

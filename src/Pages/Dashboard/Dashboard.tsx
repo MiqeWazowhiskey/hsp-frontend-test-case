@@ -45,11 +45,11 @@ export const Dashboard: React.FC = () => {
                     <div className='text-2xl flex lg:flex-row flex-col gap-4'>
                         {hourlyData && hourlyData.slice(0,3).map((user, index) => {
                             return (
-                                <NavLink
+                                <NavLink  key={index}
                                     className={'lg:w-[31.5%] w-full text-center hover:scale-105 transition-all hover:text-black'}
                                     to={navLinkGenerator(user)}
                                 >
-                                    <Card key={index} title={''} className={'h-full'}>
+                                    <Card title={''} className={'h-full'}>
                                         <UserOutlined className={'text-3xl text-[#164E63] mb-2'}/>
                                         <h2 className={'text-lg font-bold mb-2'}> {user.username}</h2>
                                         <p className={'text-sm font-light mb-2'}> {user.name} </p>
@@ -71,8 +71,8 @@ export const Dashboard: React.FC = () => {
                                 return dateA - dateB;
                             }).slice(0,3).map((user, index) => {
                             return (
-                                <NavLink to={navLinkGenerator(user)} className={'w-full text-center hover:scale-105 transition-all hover:text-black'} >
-                                    <Card key={index} title={''}>
+                                <NavLink key={index} to={navLinkGenerator(user)} className={'w-full text-center hover:scale-105 transition-all hover:text-black'} >
+                                    <Card  title={''}>
                                         <div className={'flex flex-col lg:flex-row justify-center lg:gap-5 gap-2'}>
                                             <UserOutlined/>
                                             <p className={' text-xs font-bold'}> {user.name} </p>

@@ -43,27 +43,6 @@
       }
     },
     {
-      "id": "9",
-      "name": "Robert Johnson",
-      "username": "robertjohnson",
-      "email": "robertjohnson@example.com",
-      "totalHour": 70,
-      "registerDate": 2023061400,
-      "address": {
-        "street": "789 Oak St",
-        "suite": "Apt. 456",
-        "city": "Maplewood",
-        "zipcode": "10101"
-      },
-      "phone": "1-555-222-3333",
-      "website": "robertjohnson.com",
-      "company": {
-        "name": "Tech Innovators",
-        "catchPhrase": "Driving technological excellence",
-        "bs": "Creating the future of tech"
-      }
-    },
-    {
       "id": "10",
       "name": "Emily Brown",
       "username": "emilybrown",
@@ -103,6 +82,216 @@
         "name": "Hibrit Sales",
         "catchPhrase": "Best for everybody",
         "bs": "Leading-edge technology solutions"
+      }
+    },
+    {
+      "id": "5",
+      "name": "Alice Lee",
+      "username": "alicelee",
+      "email": "alicelee@example.com",
+      "totalHour": 40,
+      "registerDate": 2022030100,
+      "address": {
+        "street": "123 Mockingbird Ln",
+        "suite": "Apt. 789",
+        "city": "Fictionville",
+        "zipcode": "12345"
+      },
+      "phone": "1-555-555-5555",
+      "website": "alicelee.com",
+      "company": {
+        "name": "Fictional Tech",
+        "catchPhrase": "Creating imaginary innovations",
+        "bs": "Inventing the stories of tomorrow"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Bob Jones",
+      "username": "bobjones",
+      "email": "bobjones@example.com",
+      "totalHour": 100,
+      "registerDate": 2022013100,
+      "address": {
+        "street": "123 Main St",
+        "suite": "Apt. 456",
+        "city": "Vancouver",
+        "zipcode": "67890"
+      },
+      "phone": "1-555-765-4321",
+      "website": "bobjones.com",
+      "company": {
+        "name": "ABC Inc.",
+        "catchPhrase": "Making things happen",
+        "bs": "Customer-oriented service delivery"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Carol Chen",
+      "username": "carolchen",
+      "email": "carolchen@example.com",
+      "totalHour": "50",
+      "registerDate": "2022022800",
+      "address": {
+        "street": "234 Pine Rd",
+        "suite": "Apt. 456",
+        "city": "Montreal",
+        "zipcode": "23456"
+      },
+      "phone": "1-555-456-7890",
+      "website": "carolchen.com",
+      "company": {
+        "name": "DEF Ltd.",
+        "catchPhrase": "Solving problems creatively",
+        "bs": "Innovative design and development"
+      }
+    },
+    {
+      "id": 8,
+      "name": "David Kim",
+      "username": "davidkim",
+      "email": "davidkim@example.com",
+      "totalHour": 70,
+      "registerDate": "2022012200",
+      "address": {
+        "street": "456 Willow Ave",
+        "suite": "Apt. 789",
+        "city": "Springfield",
+        "zipcode": "54321"
+      },
+      "phone": "1-555-888-9999",
+      "website": "davidkim.com",
+      "company": {
+        "name": "Springfield Innovations",
+        "catchPhrase": "Driving innovation in Springfield",
+        "bs": "Transforming the city through tech"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Emma Watson",
+      "username": "emmawatson",
+      "email": "emmawatson@example.com",
+      "totalHour": 90,
+      "registerDate": 2022030500,
+      "address": {
+        "street": "345 Oak Ln",
+        "suite": "Suite 12",
+        "city": "Calgary",
+        "zipcode": "34567"
+      },
+      "phone": "1-555-678-9012",
+      "website": "emmawatson.com",
+      "company": {
+        "name": "GHI Co.",
+        "catchPhrase": "Empowering people",
+        "bs": "Social impact and sustainability"
+      }
+    },
+    {
+      "id": "10",
+      "name": "John Doe",
+      "username": "johndoe",
+      "email": "johndoe@example.com",
+      "totalHour": 55,
+      "registerDate": 2023010100,
+      "address": {
+        "street": "789 Elm St",
+        "suite": "Apt. 789",
+        "city": "Springfield",
+        "zipcode": "12345"
+      },
+      "phone": "1-555-123-4567",
+      "website": "johndoe.com",
+      "company": {
+        "name": "Tech Solutions Inc.",
+        "catchPhrase": "Innovating for a better tomorrow",
+        "bs": "Technology-driven solutions"
+      }
+    },
+    {
+      "id": "11",
+      "name": "Maria Garcia",
+      "username": "mariagarcia",
+      "email": "mariagarcia@example.com",
+      "totalHour": 75,
+      "registerDate": 2023021500,
+      "address": {
+        "street": "456 Maple Ave",
+        "suite": "Apt. 101",
+        "city": "San Francisco",
+        "zipcode": "54321"
+      },
+      "phone": "1-555-987-6543",
+      "website": "mariagarcia.com",
+      "company": {
+        "name": "InnoTech Solutions",
+        "catchPhrase": "Leading the way in tech",
+        "bs": "Innovative tech services"
+      }
+    },
+    {
+      "id": "12",
+      "name": "Michael Johnson",
+      "username": "michaeljohnson",
+      "email": "michaeljohnson@example.com",
+      "totalHour": 60,
+      "registerDate": 2023032000,
+      "address": {
+        "street": "123 Oak St",
+        "suite": "Apt. 456",
+        "city": "New York",
+        "zipcode": "67890"
+      },
+      "phone": "1-555-555-1234",
+      "website": "michaeljohnson.com",
+      "company": {
+        "name": "Tech Innovate",
+        "catchPhrase": "Innovating technology solutions",
+        "bs": "Creating the future of tech"
+      }
+    },
+    {
+      "id": "13",
+      "name": "Sarah Smith",
+      "username": "sarahsmith",
+      "email": "sarahsmith@example.com",
+      "totalHour": 45,
+      "registerDate": 2023042500,
+      "address": {
+        "street": "789 Pine Rd",
+        "suite": "Apt. 789",
+        "city": "Los Angeles",
+        "zipcode": "54321"
+      },
+      "phone": "1-555-123-9876",
+      "website": "sarahsmith.com",
+      "company": {
+        "name": "InnoTech Solutions",
+        "catchPhrase": "Leading the way in tech",
+        "bs": "Innovative tech services"
+      }
+    },
+    {
+      "id": "14",
+      "name": "William Johnson",
+      "username": "williamjohnson",
+      "email": "williamjohnson@example.com",
+      "totalHour": 70,
+      "registerDate": 2023053000,
+      "address": {
+        "street": "456 Maple Ave",
+        "suite": "Apt. 123",
+        "city": "Chicago",
+        "zipcode": "67890"
+      },
+      "phone": "1-555-987-6543",
+      "website": "williamjohnson.com",
+      "company": {
+        "name": "Tech Innovate",
+        "catchPhrase": "Innovating technology solutions",
+        "bs": "Creating the future of tech"
       }
     }
   ]
