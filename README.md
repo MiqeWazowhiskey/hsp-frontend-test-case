@@ -10,7 +10,7 @@
 
 ## ScreenShots
 
-![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/ce416e33-ad86-4ee0-8248-5148ea0b66cb)
+![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/9b6edd03-49c6-4743-bd68-d4ccfea59303)
 
 ![image](https://github.com/MiqeWazowhiskey/hsp-frontend-test-case/assets/91954535/a00348a5-36e0-4c18-96de-69dee0858ee2)
 
